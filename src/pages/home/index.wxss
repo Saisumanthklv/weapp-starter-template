@@ -1,0 +1,274 @@
+/**src/pages/home/index.wxss**/
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #aaa;
+}
+
+.userinfo-avatar {
+  overflow: hidden;
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.usermotto {
+  margin-top: 200rpx;
+}
+
+.container {
+  background: #f8f9fa;
+  min-height: 100vh;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 60rpx;
+}
+
+.title {
+  display: block;
+  font-size: 48rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 20rpx;
+}
+
+.subtitle {
+  display: block;
+  font-size: 28rpx;
+  color: #666666;
+}
+
+.demo-section {
+  background: white;
+  border-radius: 20rpx;
+  padding: 40rpx;
+  margin-bottom: 40rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.05);
+}
+
+.section-title {
+  display: block;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 30rpx;
+  padding-bottom: 15rpx;
+  border-bottom: 2rpx solid #ebedf0;
+}
+
+.button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+}
+
+.button-group .van-button {
+  flex: 1;
+  min-width: 160rpx;
+}
+
+.user-motto {
+  font-size: 32rpx;
+  color: #333333;
+}
+
+/* Banner样式 */
+.banner-section {
+  width: 100%;
+  display: block;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.banner-swipe {
+  height: 400rpx;
+  width: 100%;
+  display: block;
+}
+
+.banner-item {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+}
+
+.banner-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+  padding: 40rpx 30rpx 30rpx;
+  color: white;
+}
+
+.banner-title {
+  display: block;
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+
+.banner-desc {
+  display: block;
+  font-size: 28rpx;
+  opacity: 0.9;
+}
+
+/* Tab内容样式 */
+.tab-section {
+  background: white;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+}
+
+.tab-content {
+  padding: 30rpx;
+  min-height: 600rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 推荐商品网格样式 */
+/* 使用原生flex布局替代van-grid */
+.recommend-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20rpx;
+  width: 100%;
+}
+
+.recommend-item {
+  width: calc(50% - 10rpx);
+  flex-shrink: 0;
+}
+
+.grid-item {
+  background: white;
+  border-radius: 15rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+  width: 100%;
+  display: block;
+  height: auto;
+  min-height: 280rpx;
+}
+
+.item-image {
+  width: 100%;
+  height: 200rpx;
+}
+
+.item-info {
+  padding: 20rpx;
+}
+
+.item-title {
+  display: block;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 10rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.item-price {
+  display: block;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #dc2626;
+  margin-bottom: 5rpx;
+}
+
+.item-sales {
+  display: block;
+  font-size: 24rpx;
+  color: #999999;
+}
+
+/* 热门商品Cell样式 */
+.cell-icon {
+  width: 80rpx;
+  height: 80rpx;
+  margin-right: 20rpx;
+}
+
+.cell-icon image {
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+
+/* 新品列表样式 */
+.new-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20rpx;
+}
+
+.new-item {
+  display: flex;
+  background: white;
+  border-radius: 15rpx;
+  padding: 20rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.1);
+}
+
+.new-image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 10rpx;
+  margin-right: 20rpx;
+}
+
+.new-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.new-title {
+  display: block;
+  font-size: 30rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 10rpx;
+}
+
+.new-desc {
+  display: block;
+  font-size: 26rpx;
+  color: #666666;
+  margin-bottom: 15rpx;
+}
+
+.new-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.new-price {
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #dc2626;
+}

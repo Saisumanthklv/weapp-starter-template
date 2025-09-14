@@ -1,0 +1,66 @@
+<!-- src/pages/home/index.wxml -->
+<view class="container">
+  <!-- Banner轮播图 -->
+  <view class="banner-section">
+    <swiper class="banner-swipe" indicator-dots autoplay="{{true}}" interval="{{3000}}" duration="{{500}}" circular="{{true}}">
+      <swiper-item wx:for="{{bannerList}}" wx:key="id">
+        <view class="banner-item">
+          <image class="banner-image" src="{{item.image}}" mode="aspectFill" bindtap="onBannerTap" data-item="{{item}}" />
+          <view class="banner-content">
+            <text class="banner-title">{{item.title}}</text>
+            <text class="banner-desc">{{item.desc}}</text>
+          </view>
+        </view>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- Tab导航 -->
+  <view class="tab-section">
+    <van-tabs active="{{activeTab}}" bind:change="onTabChange" sticky="{{true}}">
+      <van-tab title="推荐">
+        <view class="tab-content">
+          <view class="recommend-grid">
+            <view wx:for="{{recommendList}}" wx:key="id" class="recommend-item" bindtap="onItemTap" data-item="{{item}}">
+              <view class="grid-item">
+                <image class="item-image" src="{{item.image}}" mode="aspectFill" />
+                <view class="item-info">
+                  <text class="item-title">{{item.title}}</text>
+                  <text class="item-price">¥{{item.price}}</text>
+                  <text class="item-sales">已售{{item.sales}}件</text>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </van-tab>
+      <van-tab title="热门">
+        <view class="tab-content">
+          <van-cell-group>
+            <van-cell wx:for="{{hotList}}" wx:key="id" title="{{item.title}}" label="{{item.desc}}" value="¥{{item.price}}" is-link bindtap="onItemTap" data-item="{{item}}">
+              <view slot="icon" class="cell-icon">
+                <image src="{{item.image}}" mode="aspectFill" />
+              </view>
+            </van-cell>
+          </van-cell-group>
+        </view>
+      </van-tab>
+      <van-tab title="新品">
+        <view class="tab-content">
+          <view class="new-list">
+            <view wx:for="{{newList}}" wx:key="id" class="new-item" bindtap="onItemTap" data-item="{{item}}">
+              <image class="new-image" src="{{item.image}}" mode="aspectFill" />
+              <view class="new-info">
+                <text class="new-title">{{item.title}}</text>
+                <text class="new-desc">{{item.desc}}</text>
+                <view class="new-footer">
+                  <text class="new-price">¥{{item.price}}</text>
+                  <van-tag type="danger" size="small">新品</van-tag>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </van-tab>
+    </van-tabs>
+  </view>
+</view>

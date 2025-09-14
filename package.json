@@ -1,0 +1,45 @@
+{
+  "name": "weapp-starter-template",
+  "version": "1.0.0",
+  "description": "🚀 一个开箱即用的微信小程序启动模板，提供完整的项目架构、登录认证、日志系统、插件管理等核心功能",
+  "main": "app.js",
+  "scripts": {
+    "dev": "echo \"请使用微信开发者工具打开项目\"",
+    "build": "echo \"小程序无需构建，直接上传代码包\"",
+    "lint": "echo \"代码检查功能待添加\"",
+    "theme:apply": "node scripts/apply-vant-theme.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your-username/weapp-starter-template.git"
+  },
+  "keywords": [
+    "wechat",
+    "miniprogram",
+    "weapp",
+    "template",
+    "starter",
+    "framework",
+    "微信小程序",
+    "模板",
+    "框架"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/your-username/weapp-starter-template/issues"
+  },
+  "homepage": "https://github.com/your-username/weapp-starter-template#readme",
+  "engines": {
+    "node": ">=12.0.0"
+  },
+  "miniprogram": {
+    "version": "1.0.0",
+    "framework": "WeApp Starter Template"
+  },
+  "dependencies": {
+    "@vant/weapp": "^1.11.7",
+    "lodash": "^4.17.21",
+    "md5": "^2.3.0"
+  }
+}

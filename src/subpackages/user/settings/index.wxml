@@ -1,0 +1,41 @@
+<!--src/subpackages/user/settings/index.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="user-info">
+      <image class="avatar" src="{{userInfo.avatarUrl || '/assets/default-avatar.png'}}" mode="aspectFill"></image>
+      <view class="info">
+        <text class="nickname">{{userInfo.nickName || '未登录'}}</text>
+        <text class="desc">用户设置内容待补充</text>
+      </view>
+    </view>
+  </view>
+  
+  <view class="settings-list">
+    <view wx:for="{{settingsList}}" wx:key="index" class="setting-item">
+      <view class="setting-content" 
+            wx:if="{{item.type !== 'switch'}}"
+            data-item="{{item}}"
+            bindtap="onSettingTap">
+        <view class="left">
+          <text class="icon">{{item.icon}}</text>
+          <text class="title">{{item.title}}</text>
+        </view>
+        <text class="arrow">></text>
+      </view>
+      
+      <view class="setting-content" wx:else>
+        <view class="left">
+          <text class="icon">{{item.icon}}</text>
+          <text class="title">{{item.title}}</text>
+        </view>
+        <switch checked="{{item.value}}" 
+                data-index="{{index}}"
+                bindchange="onSwitchChange" />
+      </view>
+    </view>
+  </view>
+  
+  <view class="logout-section">
+    <button class="logout-btn" type="warn">退出登录</button>
+  </view>
+</view>

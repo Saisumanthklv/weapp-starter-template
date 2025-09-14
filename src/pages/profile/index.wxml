@@ -1,0 +1,76 @@
+<!-- src/pages/profile/index.wxml -->
+<view class="container">
+  <view class="page-stack">
+    <!-- 用户信息头部 -->
+    <view class="user-header stack-item" bindtap="onUserInfoTap">
+      <view class="user-info">
+        <van-image class="avatar" src="{{userInfo.avatar || '/assets/images/default-avatar.png'}}" round width="120rpx" height="120rpx" catchtap="onAvatarTap" />
+        <view class="user-details">
+          <text class="nickname">{{userInfo.nickname || '点击登录'}}</text>
+          <text class="user-id">ID: {{userInfo.userId || '未登录'}}</text>
+          <view class="user-level">
+            <van-tag type="primary" size="small">{{userInfo.level || 'VIP1'}}</van-tag>
+          </view>
+        </view>
+      </view>
+      <van-icon name="arrow" class="arrow-icon" catchtap="onUserInfoTap" />
+    </view>
+  </view>
+  <!-- 数据统计 -->
+  <view class="stats-section stack-item">
+    <view class="stat-item" bindtap="onStatTap" data-type="orders">
+      <text class="stat-number">{{stats.orderCount}}</text>
+      <text class="stat-label">订单</text>
+    </view>
+    <view class="stat-item" bindtap="onStatTap" data-type="favorites">
+      <text class="stat-number">{{stats.favoriteCount}}</text>
+      <text class="stat-label">收藏</text>
+    </view>
+    <view class="stat-item" bindtap="onStatTap" data-type="coupons">
+      <text class="stat-number">{{stats.couponCount}}</text>
+      <text class="stat-label">优惠券</text>
+    </view>
+    <view class="stat-item" bindtap="onStatTap" data-type="points">
+      <text class="stat-number">{{stats.pointsCount}}</text>
+      <text class="stat-label">积分</text>
+    </view>
+  </view>
+  <!-- 我的订单 -->
+  <view class="section stack-item">
+    <van-cell-group>
+      <van-cell title="我的订单" is-link bindtap="onOrdersTap">
+        <van-icon slot="icon" name="shopping-cart-o" />
+        <text slot="right-icon">查看全部</text>
+      </van-cell>
+    </van-cell-group>
+    <view class="order-status">
+      <view class="order-item" bindtap="onOrderStatusTap" data-status="pending">
+        <van-icon name="clock-o" size="40rpx" />
+        <text>待付款</text>
+        <van-badge wx:if="{{orderStatus.pending > 0}}" content="{{orderStatus.pending}}" />
+      </view>
+      <view class="order-item" bindtap="onOrderStatusTap" data-status="shipped">
+        <van-icon name="logistics" size="40rpx" />
+        <text>待收货</text>
+        <van-badge wx:if="{{orderStatus.shipped > 0}}" content="{{orderStatus.shipped}}" />
+      </view>
+      <view class="order-item" bindtap="onOrderStatusTap" data-status="completed">
+        <van-icon name="completed" size="40rpx" />
+        <text>已完成</text>
+      </view>
+      <view class="order-item" bindtap="onOrderStatusTap" data-status="refund">
+        <van-icon name="after-sale" size="40rpx" />
+        <text>退款/售后</text>
+        <van-badge wx:if="{{orderStatus.refund > 0}}" content="{{orderStatus.refund}}" />
+      </view>
+    </view>
+  </view>
+  <!-- 统计数据（精简，仅保留这一项） -->
+  <view class="section">
+    <van-cell-group>
+      <van-cell title="统计数据" is-link bindtap="onSettingTap" data-item="{{ { id: 2, icon: 'bar-chart-o', title: '统计数据', action: 'viewAnalytics' } }}">
+        <van-icon slot="icon" name="bar-chart-o" />
+      </van-cell>
+    </van-cell-group>
+  </view>
+</view>

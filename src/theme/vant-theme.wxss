@@ -1,0 +1,157 @@
+/* src/theme/vant-theme.wxss */
+/* Vant Weapp 1.11.7 绿色主题配置 - 使用 CSS 变量 */
+/* 参考文档: https://vant-ui.github.io/vant-weapp/#/theme */
+
+page {
+  /* ==================== 绿色主题配色方案 ==================== */
+  
+  /* 主色调 - 绿色系 */
+  --green-1: #ecfdf5;    /* 浅绿背景 */
+  --green-2: #d1fae5;    /* 次浅绿 */
+  --green-3: #a7f3d0;    /* 中浅绿 */
+  --green-4: #6ee7b7;    /* 中绿 */
+  --green-5: #34d399;    /* 标准绿 */
+  --green-6: #10b981;    /* 主题绿（翡翠绿） */
+  --green-7: #059669;    /* 深绿 */
+  --green-8: #047857;    /* 更深绿 */
+  --green-9: #065f46;    /* 最深绿 */
+  
+  /* 功能色彩 */
+  --success-color: #059669;    /* 成功色（深绿） */
+  --warning-color: #f97316;    /* 警告色（橙色） */
+  --danger-color: #ef4444;     /* 危险色（红色） */
+  --info-color: #3b82f6;       /* 信息色（蓝色） */
+  
+  /* ==================== Button 按钮组件 ==================== */
+  --button-primary-background-color: var(--green-6);
+  --button-primary-border-color: var(--green-6);
+  --button-primary-color: #ffffff;
+  
+  --button-success-background-color: var(--success-color);
+  --button-success-border-color: var(--success-color);
+  --button-success-color: #ffffff;
+  
+  --button-warning-background-color: var(--warning-color);
+  --button-warning-border-color: var(--warning-color);
+  --button-warning-color: #ffffff;
+  
+  --button-danger-background-color: var(--danger-color);
+  --button-danger-border-color: var(--danger-color);
+  --button-danger-color: #ffffff;
+  
+  --button-info-background-color: var(--info-color);
+  --button-info-border-color: var(--info-color);
+  --button-info-color: #ffffff;
+  
+  --button-default-background-color: #ffffff;
+  --button-default-border-color: #ebedf0;
+  --button-default-color: #323233;
+  
+  --button-disabled-background-color: #d1d5db;
+  --button-disabled-color: #ffffff;
+  --button-plain-background-color: #ffffff;
+  
+  /* ==================== Tag 标签组件 ==================== */
+  --tag-primary-color: #ffffff;
+  --tag-primary-background-color: var(--green-6);
+  
+  --tag-success-color: #ffffff;
+  --tag-success-background-color: var(--success-color);
+  
+  --tag-warning-color: #ffffff;
+  --tag-warning-background-color: var(--warning-color);
+  
+  --tag-danger-color: #ffffff;
+  --tag-danger-background-color: var(--danger-color);
+  
+  --tag-default-color: #323233;
+  --tag-default-background-color: #f3f4f6;
+  --tag-plain-background-color: #ffffff;
+  
+  /* ==================== Tabs 标签页组件 ==================== */
+  --tabs-bottom-bar-color: var(--green-6);
+  --tabs-bottom-bar-height: 3px;
+  --tabs-bottom-bar-width: 40px;
+  --tabs-nav-background-color: #ffffff;
+  --tabs-default-color: #646566;
+  --tabs-line-height: 44px;
+  
+  /* ==================== Cell 单元格组件 ==================== */
+  --cell-background-color: #ffffff;
+  --cell-border-color: #ebedf0;
+  --cell-text-color: #323233;
+  --cell-label-color: #969799;
+  --cell-value-color: #646566;
+  --cell-active-color: var(--green-1);
+  --cell-required-color: var(--danger-color);
+  --cell-right-icon-color: #969799;
+  
+  /* ==================== Toast 轻提示组件 ==================== */
+  --toast-background-color: rgba(0, 0, 0, 0.7);
+  --toast-text-color: #ffffff;
+  --toast-loading-icon-color: #ffffff;
+  --toast-max-width: 70%;
+  --toast-font-size: 14px;
+  
+  /* ==================== Dialog 弹窗组件 ==================== */
+  --dialog-background-color: #ffffff;
+  --dialog-border-radius: 8px;
+  --dialog-font-size: 16px;
+  --dialog-header-font-weight: 600;
+  --dialog-confirm-button-text-color: var(--danger-color);
+  
+  /* ==================== Loading 加载组件 ==================== */
+  --loading-spinner-color: var(--green-6);
+  --loading-text-color: #969799;
+  
+  /* ==================== Switch 开关组件 ==================== */
+  --switch-on-background-color: var(--green-6);
+  --switch-off-background-color: #ffffff;
+  --switch-node-background-color: #ffffff;
+  --switch-border-color: rgba(0, 0, 0, 0.1);
+  
+  /* ==================== Checkbox 复选框组件 ==================== */
+  --checkbox-checked-icon-color: var(--green-6);
+  --checkbox-disabled-icon-color: #c8c9cc;
+  --checkbox-disabled-label-color: #c8c9cc;
+  
+  /* ==================== Radio 单选框组件 ==================== */
+  --radio-checked-icon-color: var(--green-6);
+  --radio-disabled-icon-color: #c8c9cc;
+  --radio-disabled-label-color: #c8c9cc;
+  
+  /* ==================== Stepper 步进器组件 ==================== */
+  --stepper-active-color: var(--green-6);
+  --stepper-background-color: #f2f3f5;
+  --stepper-button-icon-color: #323233;
+  --stepper-button-disabled-color: #f7f8fa;
+  --stepper-button-disabled-icon-color: #c8c9cc;
+  
+  /* ==================== Progress 进度条组件 ==================== */
+  --progress-color: var(--green-6);
+  --progress-background-color: #ebedf0;
+  --progress-pivot-background-color: var(--green-6);
+  --progress-pivot-text-color: #ffffff;
+  
+  /* ==================== Slider 滑块组件 ==================== */
+  --slider-active-background-color: var(--green-6);
+  --slider-inactive-background-color: #ebedf0;
+  --slider-button-background-color: #ffffff;
+  --slider-button-border-color: var(--green-6);
+  
+  /* ==================== Rate 评分组件 ==================== */
+  --rate-icon-full-color: var(--green-6);
+  --rate-icon-void-color: #c8c9cc;
+  
+  /* ==================== Search 搜索组件 ==================== */
+  --search-background-color: #f7f8fa;
+  --search-content-background-color: #ffffff;
+  --search-input-height: 34px;
+  --search-label-color: #646566;
+  --search-action-text-color: var(--green-6);
+  
+  /* ==================== NoticeBar 通知栏组件 ==================== */
+  --notice-bar-background-color: #fff7cc;
+  --notice-bar-text-color: #ed6a0c;
+  --notice-bar-icon-color: #ed6a0c;
+}

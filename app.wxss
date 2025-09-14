@@ -1,0 +1,9 @@
+/* 引入 Vant Weapp 绿色主题配置 */
+@import "src/theme/vant-theme.wxss";
+
+/* 全局页面样式 */
+page {
+  background-color: #f9fafb;
+  color: #111827;
+}
+
