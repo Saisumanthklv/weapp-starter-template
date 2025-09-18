@@ -1,288 +1,409 @@
 /* src/pages/login/index.wxss */
-/* 登录页面样式 - 使用绿色主题配色 */
+/* 商城登录页面 - 现代设计风格 */
 
-.login-container {
+page {
+  background: var(--background-color);
+  height: 100vh;
+}
+
+.login-page {
   min-height: 100vh;
-  background: linear-gradient(135deg, var(--green-6) 0%, var(--green-7) 100%);
   display: flex;
   flex-direction: column;
-  padding: 0 60rpx;
+  background: linear-gradient(
+    180deg,
+    var(--primary-6) 0%,
+    var(--primary-7) 100%
+  );
+  /* 确保页面内容从安全区域开始 */
+  padding-top: var(--safe-area-inset-top);
 }
 
-/* 头部Logo区域 */
-.login-header {
+/* ==================== 固定透明导航栏 ==================== */
+.fixed-navbar {
+  position: fixed;
+  top: calc(var(--safe-area-inset-top) + 44rpx + 16rpx);
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: transparent;
+  pointer-events: none;
+}
+
+.navbar-content {
+  padding: 8rpx 32rpx;
+  height: 44rpx;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 120rpx 0 80rpx;
-}
-
-.logo {
-  width: 120rpx;
-  height: 120rpx;
-  border-radius: 24rpx;
-  margin-bottom: 30rpx;
-  background: #fff;
-}
-
-.app-name {
-  font-size: 48rpx;
-  font-weight: bold;
-  color: #fff;
-  margin-bottom: 16rpx;
-}
-
-.welcome-text {
-  font-size: 28rpx;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-/* 登录方式切换 */
-.login-tabs {
-  display: flex;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12rpx;
-  padding: 8rpx;
-  margin-bottom: 60rpx;
-}
-
-.tab-item {
-  flex: 1;
-  text-align: center;
-  padding: 24rpx 0;
-  border-radius: 8rpx;
-  transition: all 0.3s ease;
-}
-
-.tab-item text {
-  font-size: 32rpx;
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.tab-item.active {
-  background: #fff;
-}
-
-.tab-item.active text {
-  color: #333;
-  font-weight: 500;
-}
-
-/* 登录内容区域 */
-.login-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-/* 微信登录区域 */
-.wx-login-section {
-  display: flex;
-  flex-direction: column;
   align-items: center;
 }
 
-.login-desc {
-  margin-bottom: 60rpx;
-}
-
-.login-desc text {
-  font-size: 28rpx;
-  color: rgba(255, 255, 255, 0.8);
-}
-
-/* 登录按钮 */
-.login-btn {
-  width: 100%;
-  height: 96rpx;
-  border-radius: 48rpx;
+.back-button {
+  width: 64rpx;
+  height: 64rpx;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 32rpx;
-  font-weight: 500;
-  margin-bottom: 30rpx;
-  border: none;
+  border-radius: 50%;
+  pointer-events: auto;
+}
+
+/* ==================== 顶部装饰背景 ==================== */
+.login-header {
   position: relative;
+  padding: calc(var(--safe-area-inset-top) + 44rpx + 16rpx) 0 0;
+  background: transparent;
   overflow: hidden;
 }
 
-.login-btn::after {
-  border: none;
+.header-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>')
+    repeat;
+  opacity: 0.3;
 }
 
-.wx-login-btn {
-  background: var(--green-6);
-  color: #fff;
+.header-content {
+  position: relative;
+  z-index: 1;
+  padding: 80rpx 48rpx 120rpx;
 }
 
-.phone-auth-btn {
-  background: var(--success-color);
-  color: #fff;
-}
-
-.phone-login-btn {
-  background: #fff;
-  color: var(--text-color);
-  margin-top: 40rpx;
-}
-
-.login-btn[disabled] {
-  opacity: 0.6;
-}
-
-.btn-icon {
-  margin-right: 16rpx;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* 手机号登录区域 */
-.phone-login-section {
+/* 品牌Logo区域 */
+.brand-section {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
 }
 
-.input-group {
-  margin-bottom: 40rpx;
+.brand-logo {
+  margin-bottom: 32rpx;
+  box-shadow: 0 8rpx 32rpx rgba(0, 0, 0, 0.1);
 }
 
-.input-item {
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 12rpx;
-  margin-bottom: 30rpx;
+.brand-title {
+  font-size: 56rpx;
+  font-weight: 700;
+  color: var(--neutral-1);
+  margin-bottom: 16rpx;
+  letter-spacing: 2rpx;
+}
+
+.brand-subtitle {
+  font-size: 28rpx;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 400;
+}
+
+/* ==================== 登录表单容器 ==================== */
+.login-form-container {
+  flex: 1;
+  background: var(--neutral-1);
+  border-radius: 32rpx 32rpx 0 0;
+  margin-top: -32rpx;
   position: relative;
+  z-index: 2;
+  padding: 48rpx 48rpx 32rpx;
+  box-shadow: 0 -8rpx 32rpx rgba(0, 0, 0, 0.08);
 }
 
-.phone-input,
-.code-input {
-  width: 100%;
-  height: 96rpx;
-  padding: 0 30rpx;
+/* 欢迎文案 */
+.welcome-section {
+  text-align: center;
+  margin-bottom: 48rpx;
+}
+
+.welcome-title {
+  display: block;
+  font-size: 48rpx;
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 16rpx;
+}
+
+.welcome-subtitle {
+  display: block;
+  font-size: 28rpx;
+  color: var(--text-color-2);
+  font-weight: 400;
+}
+
+/* ==================== 登录方式切换 ==================== */
+.login-tabs {
+  margin-bottom: 48rpx;
+}
+
+.login-tab {
   font-size: 32rpx;
-  border: none;
-  background: transparent;
+  font-weight: 500;
+  padding: 24rpx 0;
 }
 
-.code-input-item {
+.login-tab-active {
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* ==================== 微信快速登录 ==================== */
+.login-section {
+  margin-bottom: 32rpx;
+}
+
+.quick-login-area {
+  display: flex;
+  flex-direction: column;
+  gap: 32rpx;
+}
+
+/* 主要登录按钮 */
+.primary-login-btn {
+  height: 96rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  box-shadow: 0 8rpx 24rpx rgba(229, 62, 62, 0.3);
+  border: none;
+}
+
+/* 辅助登录选项 */
+.secondary-options {
+  margin-top: 24rpx;
+}
+
+.secondary-login-btn {
+  height: 88rpx;
+  font-size: 30rpx;
+  color: var(--text-color);
+  border: 2rpx solid var(--border-color);
+  background: var(--neutral-1);
+}
+
+/* 登录优势说明 */
+.login-benefits {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 48rpx;
+  padding: 32rpx 0;
+  background: var(--neutral-2);
+  border-radius: 16rpx;
+}
+
+.benefit-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16rpx;
+}
+
+.benefit-item text {
+  font-size: 24rpx;
+  color: var(--text-color-2);
+  font-weight: 500;
+}
+
+/* ==================== 手机号登录 ==================== */
+.phone-login-area {
+  display: flex;
+  flex-direction: column;
+  gap: 32rpx;
+}
+
+/* 表单组 */
+.form-group {
+  background: var(--neutral-1);
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 16rpx rgba(0, 0, 0, 0.04);
+}
+
+.form-field {
+  padding: 32rpx 24rpx;
+  font-size: 32rpx;
+}
+
+/* 验证码输入行 */
+.verify-code-row {
   display: flex;
   align-items: center;
-  padding-right: 20rpx;
+  padding: 32rpx 24rpx;
+  gap: 24rpx;
+  border-top: 1rpx solid var(--border-color-light);
 }
 
-.code-input {
+.verify-code-field {
   flex: 1;
-  padding-right: 20rpx;
+  padding: 0;
 }
 
 .send-code-btn {
   width: 200rpx;
   height: 64rpx;
-  background: var(--green-6);
-  color: #fff;
-  border: none;
-  border-radius: 8rpx;
   font-size: 26rpx;
+  border-radius: 8rpx;
+  font-weight: 500;
+}
+
+/* 手机登录按钮 */
+.phone-login-btn {
+  height: 96rpx;
+  font-size: 32rpx;
+  font-weight: 600;
+  margin-top: 16rpx;
+}
+
+/* 其他登录方式 */
+.other-login-methods {
+  margin-top: 48rpx;
+}
+
+.divider-line {
+  position: relative;
+  text-align: center;
+  margin-bottom: 32rpx;
+}
+
+.divider-line::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1rpx;
+  background: var(--border-color-light);
+}
+
+.divider-text {
+  background: var(--neutral-1);
+  padding: 0 24rpx;
+  font-size: 24rpx;
+  color: var(--text-color-3);
+  position: relative;
+  z-index: 1;
+}
+
+.other-methods-list {
   display: flex;
-  align-items: center;
   justify-content: center;
 }
 
-.send-code-btn.disabled {
-  background: var(--disabled-color);
-  color: var(--text-color-3);
+.method-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16rpx;
+  padding: 24rpx;
+  border-radius: 12rpx;
+  transition: all 0.3s ease;
 }
 
-.send-code-btn::after {
-  border: none;
+.method-item:active {
+  background: var(--active-color);
+  transform: scale(0.95);
 }
 
-/* 用户协议 */
-.agreement-section {
-  padding: 60rpx 0 40rpx;
-  text-align: center;
+.method-item text {
+  font-size: 24rpx;
+  color: var(--text-color-2);
+  font-weight: 500;
+}
+
+/* ==================== 底部协议区域 ==================== */
+.agreement-footer {
+  padding: 32rpx 48rpx calc(var(--safe-area-inset-bottom) + 32rpx);
+  background: var(--neutral-1);
+}
+
+.agreement-checkbox {
+  display: flex;
+  align-items: flex-start;
+  gap: 16rpx;
+  margin-bottom: 24rpx;
+}
+
+.agreement-check {
+  margin-top: 4rpx;
 }
 
 .agreement-text {
-  font-size: 24rpx;
-  color: rgba(255, 255, 255, 0.7);
+  flex: 1;
   line-height: 1.6;
 }
 
-.link-text {
-  color: #fff;
-  text-decoration: underline;
+.agreement-prefix,
+.agreement-connector {
+  font-size: 24rpx;
+  color: var(--text-color-3);
 }
 
-/* 响应式适配 */
+.agreement-link {
+  font-size: 24rpx;
+  color: var(--primary-color);
+  font-weight: 500;
+  text-decoration: none;
+  margin: 0 4rpx;
+}
+
+.agreement-link:active {
+  opacity: 0.7;
+}
+
+/* 客服联系 */
+.customer-service {
+  text-align: center;
+}
+
+.service-btn {
+  font-size: 24rpx;
+  color: var(--text-color-2);
+  border: 1rpx solid var(--border-color-light);
+  background: transparent;
+}
+
+/* ==================== 响应式适配 ==================== */
 @media (max-height: 600px) {
-  .login-header {
-    padding: 80rpx 0 40rpx;
+  .header-content {
+    padding: 60rpx 48rpx 80rpx;
   }
 
-  .logo {
-    width: 100rpx;
-    height: 100rpx;
+  .brand-title {
+    font-size: 48rpx;
   }
 
-  .app-name {
+  .welcome-title {
     font-size: 40rpx;
   }
 }
 
-/* ===== 覆盖为 Vant 原生简洁布局 ===== */
-page {
-  background: var(--background-color);
+/* ==================== 动画效果 ==================== */
+.login-form-container {
+  animation: slideUp 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-.login-container {
-  background: transparent; /* 使用页面浅灰背景 */
-  padding: 24rpx; /* 页面统一留白 */
-  min-height: 100vh;
-  box-sizing: border-box;
+@keyframes slideUp {
+  from {
+    transform: translateY(100rpx);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
-.section {
-  margin-top: 24rpx;
-  display: flex;
-  flex-direction: column;
-  gap: 24rpx;
-}
-.row {
-  display: flex;
-  align-items: center;
-}
-.flex-1 {
-  flex: 1;
-}
-.ml-12 {
-  margin-left: 24rpx;
-}
-.mt-12 {
-  margin-top: 24rpx;
+.login-section {
+  animation: fadeIn 0.8s ease-out 0.2s both;
 }
 
-/* van-tabs 外观微调，贴近官方默认视觉 */
-.van-tabs {
-  margin-top: 8rpx;
-}
-.van-tabs__wrap {
-  background: #fff;
-}
-.van-tabs__content {
-  padding: 0 0;
-}
-
-.agreement-section {
-  margin-top: 48rpx;
-  text-align: center;
-}
-.agreement-text {
-  font-size: 24rpx;
-  color: #969799;
-}
-.link-text {
-  color: #1989fa;
-  text-decoration: none;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

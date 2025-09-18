@@ -1,90 +1,168 @@
 /* src/theme/vant-theme.wxss */
-/* Vant Weapp 1.11.7 绿色主题配置 - 使用 CSS 变量 */
+/* Vant Weapp 1.11.7 定制橙色主题配置 - 使用 CSS 变量 */
 /* 参考文档: https://vant-ui.github.io/vant-weapp/#/theme */
 
 page {
-  /* ==================== 绿色主题配色方案 ==================== */
+  /* ==================== 定制橙色主题配色方案 ==================== */
   
-  /* 主色调 - 绿色系 */
-  --green-1: #ecfdf5;    /* 浅绿背景 */
-  --green-2: #d1fae5;    /* 次浅绿 */
-  --green-3: #a7f3d0;    /* 中浅绿 */
-  --green-4: #6ee7b7;    /* 中绿 */
-  --green-5: #34d399;    /* 标准绿 */
-  --green-6: #10b981;    /* 主题绿（翡翠绿） */
-  --green-7: #059669;    /* 深绿 */
-  --green-8: #047857;    /* 更深绿 */
-  --green-9: #065f46;    /* 最深绿 */
+  /* 主色调 - 高端黑红配色方案 (激发购物欲望) */
+  --primary-1: #fff5f5;   /* 极浅红背景 */
+  --primary-2: #fed7d7;   /* 浅红背景 */
+  --primary-3: #feb2b2;   /* 中浅红 */
+  --primary-4: #fc8181;   /* 中红 */
+  --primary-5: #f56565;   /* 标准红 */
+  --primary-6: #e53e3e;   /* 主题红（购物欲望色） */
+  --primary-7: #c53030;   /* 深红 */
+  --primary-8: #9b2c2c;   /* 更深红 */
+  --primary-9: #742a2a;   /* 最深红 */
   
-  /* 功能色彩 */
-  --success-color: #059669;    /* 成功色（深绿） */
-  --warning-color: #f97316;    /* 警告色（橙色） */
-  --danger-color: #ef4444;     /* 危险色（红色） */
-  --info-color: #3b82f6;       /* 信息色（蓝色） */
+  /* 辅助色调 - 高端黑色系 (奢华精致) */
+  --accent-1: #f7fafc;    /* 极浅灰背景 */
+  --accent-2: #edf2f7;    /* 浅灰背景 */
+  --accent-3: #e2e8f0;    /* 中浅灰 */
+  --accent-4: #cbd5e0;    /* 中灰 */
+  --accent-5: #a0aec0;    /* 标准灰 */
+  --accent-6: #718096;    /* 深灰 */
+  --accent-7: #4a5568;    /* 更深灰 */
+  --accent-8: #2d3748;    /* 炭黑 */
+  --accent-9: #1a202c;    /* 最深黑 */
+  
+  /* 中性色调 - 极简黑白系 (现代简约) */
+  --neutral-1: #ffffff;   /* 纯白 */
+  --neutral-2: #fafafa;   /* 极浅灰 */
+  --neutral-3: #f5f5f5;   /* 浅灰 */
+  --neutral-4: #eeeeee;   /* 中浅灰 */
+  --neutral-5: #e0e0e0;   /* 中灰 */
+  --neutral-6: #bdbdbd;   /* 深灰 */
+  --neutral-7: #757575;   /* 更深灰 */
+  --neutral-8: #424242;   /* 炭灰 */
+  --neutral-9: #212121;   /* 纯黑 */
+  
+  /* 功能色调 - 商城专用配色 */
+  --success-1: #f0fff4;      /* 极浅绿背景 */
+  --success-2: #c6f6d5;      /* 浅绿背景 */
+  --success-6: #38a169;      /* 成功绿 */
+  --success-7: #2f855a;      /* 深绿 */
+  
+  --warning-1: #fffbeb;      /* 极浅黄背景 */
+  --warning-2: #fef3c7;      /* 浅黄背景 */
+  --warning-6: #d69e2e;      /* 警告黄 */
+  --warning-7: #b7791f;      /* 深黄 */
+  
+  --danger-1: #fff5f5;       /* 极浅红背景 */
+  --danger-2: #fed7d7;       /* 浅红背景 */
+  --danger-6: #e53e3e;       /* 危险红 */
+  --danger-7: #c53030;       /* 深红 */
+  
+  --info-1: #ebf8ff;         /* 极浅蓝背景 */
+  --info-2: #bee3f8;         /* 浅蓝背景 */
+  --info-6: #3182ce;         /* 信息蓝 */
+  --info-7: #2c5282;         /* 深蓝 */
+  
+  /* ==================== Vant 核心主题变量 ==================== */
+  /* 主色调 - 商城购物欲望配色 */
+  --primary-color: var(--primary-6);     /* 激发购物欲的红色 */
+  --success-color: var(--success-6);     /* 成功绿色 */
+  --warning-color: var(--warning-6);     /* 警告黄色 */
+  --danger-color: var(--danger-6);       /* 危险红色 */
+  --info-color: var(--info-6);           /* 信息蓝色 */
+  
+  /* 文本颜色 - 高对比度阅读体验 */
+  --text-color: var(--neutral-9);        /* 主要文本：纯黑 */
+  --text-color-2: var(--neutral-7);      /* 次要文本：深灰 */
+  --text-color-3: var(--neutral-6);      /* 辅助文本：中灰 */
+  
+  /* 背景颜色 - 极简白色系 */
+  --background-color: var(--neutral-2);  /* 页面背景：极浅灰 */
+  --background-color-light: var(--neutral-3); /* 浅色背景 */
+  --background-color-2: var(--neutral-1); /* 卡片背景：纯白 */
+  
+  /* 边框颜色 - 精致分割线 */
+  --border-color: var(--neutral-4);      /* 主要边框 */
+  --border-color-light: var(--neutral-3); /* 浅色边框 */
+  
+  /* 激活状态颜色 - 购物互动反馈 */
+  --active-color: var(--primary-1);      /* 激活背景：浅红 */
+  --active-opacity: 0.8;                 /* 激活透明度 */
+  
+  /* ==================== Tabbar 标签栏组件 ==================== */
+  --tabbar-background-color: var(--neutral-1);
+  --tabbar-item-text-color: var(--neutral-6);
+  --tabbar-item-active-color: var(--primary-6);
+  --tabbar-item-active-background-color: transparent;
+  --tabbar-height: 50px;
   
   /* ==================== Button 按钮组件 ==================== */
-  --button-primary-background-color: var(--green-6);
-  --button-primary-border-color: var(--green-6);
-  --button-primary-color: #ffffff;
+  --button-primary-background-color: var(--primary-6);
+  --button-primary-border-color: var(--primary-6);
+  --button-primary-color: var(--neutral-1);
   
-  --button-success-background-color: var(--success-color);
-  --button-success-border-color: var(--success-color);
-  --button-success-color: #ffffff;
+  --button-success-background-color: var(--success-6);
+  --button-success-border-color: var(--success-6);
+  --button-success-color: var(--neutral-1);
   
-  --button-warning-background-color: var(--warning-color);
-  --button-warning-border-color: var(--warning-color);
-  --button-warning-color: #ffffff;
+  --button-warning-background-color: var(--warning-6);
+  --button-warning-border-color: var(--warning-6);
+  --button-warning-color: var(--neutral-1);
   
-  --button-danger-background-color: var(--danger-color);
-  --button-danger-border-color: var(--danger-color);
-  --button-danger-color: #ffffff;
+  --button-danger-background-color: var(--danger-6);
+  --button-danger-border-color: var(--danger-6);
+  --button-danger-color: var(--neutral-1);
   
-  --button-info-background-color: var(--info-color);
-  --button-info-border-color: var(--info-color);
-  --button-info-color: #ffffff;
+  --button-info-background-color: var(--info-6);
+  --button-info-border-color: var(--info-6);
+  --button-info-color: var(--neutral-1);
   
-  --button-default-background-color: #ffffff;
-  --button-default-border-color: #ebedf0;
-  --button-default-color: #323233;
+  --button-default-background-color: var(--neutral-1);
+  --button-default-border-color: var(--neutral-4);
+  --button-default-color: var(--neutral-8);
   
-  --button-disabled-background-color: #d1d5db;
-  --button-disabled-color: #ffffff;
-  --button-plain-background-color: #ffffff;
+  --button-disabled-background-color: var(--neutral-4);
+  --button-disabled-color: var(--neutral-1);
+  --button-plain-background-color: var(--neutral-1);
+  --button-border-width: 1px;
+  --button-border-radius: 4px;
+  --button-font-size: 16px;
+  --button-font-weight: 500;
+  --button-line-height: 1.2;
+  --button-mini-height: 24px;
+  --button-mini-font-size: 12px;
+  --button-small-height: 32px;
+  --button-small-font-size: 14px;
+  --button-normal-height: 44px;
+  --button-large-height: 50px;
   
   /* ==================== Tag 标签组件 ==================== */
-  --tag-primary-color: #ffffff;
-  --tag-primary-background-color: var(--green-6);
-  
-  --tag-success-color: #ffffff;
-  --tag-success-background-color: var(--success-color);
-  
-  --tag-warning-color: #ffffff;
-  --tag-warning-background-color: var(--warning-color);
-  
-  --tag-danger-color: #ffffff;
-  --tag-danger-background-color: var(--danger-color);
-  
-  --tag-default-color: #323233;
-  --tag-default-background-color: #f3f4f6;
-  --tag-plain-background-color: #ffffff;
+  --tag-primary-background-color: var(--primary-6);
+  --tag-primary-text-color: var(--neutral-1);
+  --tag-success-background-color: var(--success-6);
+  --tag-success-text-color: var(--neutral-1);
+  --tag-warning-background-color: var(--warning-6);
+  --tag-warning-text-color: var(--neutral-1);
+  --tag-danger-background-color: var(--danger-6);
+  --tag-danger-text-color: var(--neutral-1);
+  --tag-default-background-color: var(--neutral-3);
+  --tag-default-text-color: var(--neutral-8);
   
   /* ==================== Tabs 标签页组件 ==================== */
-  --tabs-bottom-bar-color: var(--green-6);
+  --tabs-bottom-bar-color: var(--primary-6);
   --tabs-bottom-bar-height: 3px;
   --tabs-bottom-bar-width: 40px;
-  --tabs-nav-background-color: #ffffff;
-  --tabs-default-color: #646566;
+  --tabs-nav-background-color: var(--neutral-1);
+  --tabs-default-color: var(--neutral-6);
   --tabs-line-height: 44px;
+  --tabs-active-text-color: var(--primary-6);
+  --tabs-disabled-text-color: var(--neutral-5);
   
   /* ==================== Cell 单元格组件 ==================== */
-  --cell-background-color: #ffffff;
-  --cell-border-color: #ebedf0;
-  --cell-text-color: #323233;
-  --cell-label-color: #969799;
-  --cell-value-color: #646566;
-  --cell-active-color: var(--green-1);
-  --cell-required-color: var(--danger-color);
-  --cell-right-icon-color: #969799;
+  --cell-background-color: var(--neutral-1);
+  --cell-border-color: var(--neutral-4);
+  --cell-text-color: var(--neutral-9);
+  --cell-label-color: var(--neutral-7);
+  --cell-value-color: var(--neutral-7);
+  --cell-icon-size: 32rpx;
+  --cell-right-icon-color: var(--neutral-6);
+  --cell-required-color: var(--danger-6);
   
   /* ==================== Toast 轻提示组件 ==================== */
   --toast-background-color: rgba(0, 0, 0, 0.7);
@@ -94,64 +172,281 @@ page {
   --toast-font-size: 14px;
   
   /* ==================== Dialog 弹窗组件 ==================== */
-  --dialog-background-color: #ffffff;
-  --dialog-border-radius: 8px;
+  --dialog-background-color: var(--neutral-1);
+  --dialog-border-radius: 12px;
   --dialog-font-size: 16px;
   --dialog-header-font-weight: 600;
-  --dialog-confirm-button-text-color: var(--danger-color);
+  --dialog-confirm-button-text-color: var(--primary-6);
+  --dialog-cancel-button-text-color: var(--neutral-6);
+  --dialog-message-text-color: var(--neutral-8);
+  --dialog-header-text-color: var(--neutral-9);
   
   /* ==================== Loading 加载组件 ==================== */
-  --loading-spinner-color: var(--green-6);
-  --loading-text-color: #969799;
+  --loading-spinner-color: var(--primary-6);
+  --loading-text-color: var(--neutral-6);
   
   /* ==================== Switch 开关组件 ==================== */
-  --switch-on-background-color: var(--green-6);
-  --switch-off-background-color: #ffffff;
-  --switch-node-background-color: #ffffff;
-  --switch-border-color: rgba(0, 0, 0, 0.1);
+  --switch-on-background-color: var(--primary-6);
+  --switch-off-background-color: var(--neutral-4);
+  --switch-node-background-color: var(--neutral-1);
+  --switch-node-shadow: 0 3rpx 1rpx 0 rgba(0, 0, 0, 0.05), 0 2rpx 2rpx 0 rgba(0, 0, 0, 0.1), 0 3rpx 3rpx 0 rgba(0, 0, 0, 0.05);
   
   /* ==================== Checkbox 复选框组件 ==================== */
-  --checkbox-checked-icon-color: var(--green-6);
-  --checkbox-disabled-icon-color: #c8c9cc;
-  --checkbox-disabled-label-color: #c8c9cc;
+  --checkbox-checked-icon-color: var(--primary-6);
+  --checkbox-disabled-icon-color: var(--neutral-5);
+  --checkbox-disabled-label-color: var(--neutral-5);
+  
+  /* ==================== 自定义扩展主题变量 ==================== */
+  /* 阴影效果 */
+  --shadow-light: 0 2px 8px rgba(229, 62, 62, 0.08);
+  --shadow-medium: 0 4px 12px rgba(229, 62, 62, 0.12);
+  --shadow-heavy: 0 8px 24px rgba(229, 62, 62, 0.16);
+  
+  /* 渐变色 */
+  --gradient-primary: linear-gradient(135deg, var(--primary-5) 0%, var(--primary-7) 100%);
+  --gradient-success: linear-gradient(135deg, var(--success-6) 0%, var(--success-7) 100%);
+  --gradient-warm: linear-gradient(135deg, var(--primary-2) 0%, var(--success-2) 100%);
+  
+  /* 特殊状态颜色 */
+  --hover-color: var(--primary-7);
+  --focus-color: var(--primary-6);
+  --disabled-color: var(--neutral-4);
+  --placeholder-color: var(--neutral-5);
+  
+  /* 间距系统 */
+  --spacing-xs: 8rpx;
+  --spacing-sm: 16rpx;
+  --spacing-md: 24rpx;
+  --spacing-lg: 32rpx;
+  --spacing-xl: 48rpx;
+  
+  /* 圆角系统 */
+  --radius-xs: 4rpx;
+  --radius-sm: 8rpx;
+  --radius-md: 12rpx;
+  --radius-lg: 16rpx;
+  --radius-xl: 24rpx;
+  --radius-full: 50%;
+  
+  /* 安全区域适配 */
+  --safe-area-inset-top: env(safe-area-inset-top, 0px);
+  --safe-area-inset-right: env(safe-area-inset-right, 0px);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-inset-left: env(safe-area-inset-left, 0px);
+  
+  /* 常用组合安全区域 */
+  --safe-padding-top: var(--safe-area-inset-top);
+  --safe-padding-bottom: calc(var(--safe-area-inset-bottom) + 100rpx);
+  --safe-padding-horizontal: max(var(--safe-area-inset-left), var(--safe-area-inset-right));
   
   /* ==================== Radio 单选框组件 ==================== */
-  --radio-checked-icon-color: var(--green-6);
-  --radio-disabled-icon-color: #c8c9cc;
-  --radio-disabled-label-color: #c8c9cc;
+  --radio-checked-icon-color: var(--primary-6);
+  --radio-disabled-icon-color: var(--neutral-5);
+  --radio-disabled-label-color: var(--neutral-5);
   
   /* ==================== Stepper 步进器组件 ==================== */
-  --stepper-active-color: var(--green-6);
-  --stepper-background-color: #f2f3f5;
-  --stepper-button-icon-color: #323233;
-  --stepper-button-disabled-color: #f7f8fa;
-  --stepper-button-disabled-icon-color: #c8c9cc;
+  --stepper-active-color: var(--primary-6);
+  --stepper-background-color: var(--neutral-3);
+  --stepper-button-icon-color: var(--neutral-8);
   
   /* ==================== Progress 进度条组件 ==================== */
-  --progress-color: var(--green-6);
-  --progress-background-color: #ebedf0;
-  --progress-pivot-background-color: var(--green-6);
-  --progress-pivot-text-color: #ffffff;
+  --progress-background-color: var(--neutral-3);
+  --progress-pivot-background-color: var(--primary-6);
+  --progress-pivot-text-color: var(--neutral-1);
   
   /* ==================== Slider 滑块组件 ==================== */
-  --slider-active-background-color: var(--green-6);
-  --slider-inactive-background-color: #ebedf0;
-  --slider-button-background-color: #ffffff;
-  --slider-button-border-color: var(--green-6);
+  --slider-active-background-color: var(--primary-6);
+  --slider-inactive-background-color: var(--neutral-4);
+  --slider-button-background-color: var(--neutral-1);
+  --slider-button-border-color: var(--primary-6);
   
   /* ==================== Rate 评分组件 ==================== */
-  --rate-icon-full-color: var(--green-6);
-  --rate-icon-void-color: #c8c9cc;
+  --rate-icon-full-color: var(--warning-6);
+  --rate-icon-void-color: var(--neutral-4);
   
   /* ==================== Search 搜索组件 ==================== */
-  --search-background-color: #f7f8fa;
-  --search-content-background-color: #ffffff;
-  --search-input-height: 34px;
-  --search-label-color: #646566;
-  --search-action-text-color: var(--green-6);
+  --search-background-color: var(--neutral-3);
+  --search-content-background-color: var(--neutral-1);
+  --search-input-text-color: var(--neutral-9);
+  --search-action-text-color: var(--primary-6);
   
+  /* ==================== Picker 选择器组件 ==================== */
+  --picker-background-color: var(--neutral-1);
+  --picker-toolbar-height: 44px;
+  --picker-title-font-size: 16px;
+  --picker-action-color: var(--primary-6);
+  --picker-option-text-color: var(--neutral-9);
+  --picker-loading-icon-color: var(--primary-6);
+
+  /* ==================== Field 输入框组件 ==================== */
+  --field-input-text-color: var(--neutral-9);
+  --field-input-disabled-text-color: var(--neutral-5);
+  --field-placeholder-text-color: var(--neutral-6);
+  --field-icon-container-color: var(--neutral-6);
+  --field-label-color: var(--neutral-9);
+  --field-required-color: var(--danger-6);
+  --field-error-message-color: var(--danger-6);
+  --field-border-color: var(--neutral-4);
+  --field-focus-border-color: var(--primary-6);
+
+  /* ==================== NavBar 导航栏组件 ==================== */
+  --nav-bar-background-color: var(--neutral-1);
+  --nav-bar-arrow-color: var(--neutral-8);
+  --nav-bar-text-color: var(--neutral-9);
+  --nav-bar-title-text-color: var(--neutral-9);
+  --nav-bar-icon-color: var(--neutral-8);
+
   /* ==================== NoticeBar 通知栏组件 ==================== */
-  --notice-bar-background-color: #fff7cc;
-  --notice-bar-text-color: #ed6a0c;
-  --notice-bar-icon-color: #ed6a0c;
+  --notice-bar-background-color: var(--warning-1);
+  --notice-bar-text-color: var(--warning-7);
+  --notice-bar-padding: 0 16px;
+  --notice-bar-wrapable-padding: 16px;
+  --notice-bar-font-size: 14px;
+  --notice-bar-line-height: 24px;
+  --notice-bar-left-icon-color: var(--warning-6);
+  --notice-bar-right-icon-color: var(--warning-6);
+
+  /* ==================== Popup 弹出层组件 ==================== */
+  --popup-background-color: var(--neutral-1);
+  --popup-border-radius: 16px 16px 0 0;
+  --popup-close-icon-color: var(--neutral-6);
+  --popup-close-icon-size: 22px;
+  --popup-close-icon-margin: 16px;
+
+  /* ==================== ActionSheet 动作面板组件 ==================== */
+  --action-sheet-background-color: var(--neutral-1);
+  --action-sheet-item-background: var(--neutral-1);
+  --action-sheet-item-font-size: 16px;
+  --action-sheet-item-line-height: 22px;
+  --action-sheet-item-text-color: var(--neutral-9);
+  --action-sheet-item-disabled-text-color: var(--neutral-5);
+  --action-sheet-subname-color: var(--neutral-6);
+  --action-sheet-subname-font-size: 12px;
+  --action-sheet-subname-line-height: 20px;
+  --action-sheet-close-icon-color: var(--neutral-6);
+  --action-sheet-cancel-text-color: var(--neutral-7);
+  --action-sheet-cancel-padding-top: 6px;
+  --action-sheet-cancel-padding-color: var(--neutral-3);
+  --action-sheet-loading-icon-color: var(--neutral-6);
+
+  /* ==================== Overlay 遮罩层组件 ==================== */
+  --overlay-background-color: rgba(0, 0, 0, 0.7);
+
+  /* ==================== DropdownMenu 下拉菜单组件 ==================== */
+  --dropdown-menu-background-color: var(--neutral-1);
+  --dropdown-menu-box-shadow: 0 2px 12px rgba(100, 101, 102, 0.12);
+  --dropdown-menu-title-font-size: 15px;
+  --dropdown-menu-title-text-color: var(--neutral-9);
+  --dropdown-menu-title-active-text-color: var(--primary-6);
+  --dropdown-menu-title-disabled-text-color: var(--neutral-5);
+  --dropdown-menu-title-padding: 0 8px;
+  --dropdown-menu-title-line-height: 18px;
+  --dropdown-menu-option-active-color: var(--primary-6);
+
+  /* ==================== Grid 宫格组件 ==================== */
+  --grid-item-content-padding: 16px 8px;
+  --grid-item-content-background-color: var(--neutral-1);
+  --grid-item-icon-size: 28px;
+  --grid-item-text-color: var(--neutral-7);
+  --grid-item-text-font-size: 12px;
+
+  /* ==================== IndexBar 索引栏组件 ==================== */
+  --index-bar-sidebar-text-color: var(--neutral-6);
+  --index-bar-sidebar-font-size: 10px;
+  --index-bar-sidebar-line-height: 14px;
+  --index-bar-sidebar-background-color: transparent;
+  --index-bar-sidebar-padding: 20px 4px 20px 0;
+  --index-anchor-text-color: var(--neutral-9);
+  --index-anchor-font-weight: 500;
+  --index-anchor-font-size: 14px;
+  --index-anchor-line-height: 32px;
+  --index-anchor-background-color: transparent;
+  --index-anchor-sticky-text-color: var(--primary-6);
+  --index-anchor-sticky-background-color: var(--neutral-1);
+
+  /* ==================== Sidebar 侧边导航组件 ==================== */
+  --sidebar-background-color: var(--neutral-2);
+  --sidebar-item-text-color: var(--neutral-7);
+  --sidebar-item-active-text-color: var(--primary-6);
+  --sidebar-item-active-background-color: var(--neutral-1);
+  --sidebar-item-disabled-text-color: var(--neutral-5);
+  --sidebar-item-padding: 20px 12px;
+  --sidebar-item-font-size: 14px;
+  --sidebar-item-line-height: 20px;
+
+  /* ==================== Steps 步骤条组件 ==================== */
+  --steps-background-color: var(--neutral-1);
+  --step-text-color: var(--neutral-6);
+  --step-active-color: var(--primary-6);
+  --step-process-text-color: var(--neutral-9);
+  --step-font-size: 14px;
+  --step-line-color: var(--neutral-4);
+  --step-finish-line-color: var(--primary-6);
+  --step-finish-text-color: var(--neutral-9);
+  --step-icon-size: 12px;
+  --step-circle-size: 5px;
+  --step-circle-color: var(--neutral-6);
+  --step-horizontal-title-font-size: 12px;
+
+  /* ==================== TreeSelect 分类选择组件 ==================== */
+  --tree-select-font-size: 14px;
+  --tree-select-nav-background-color: var(--neutral-2);
+  --tree-select-content-background-color: var(--neutral-1);
+  --tree-select-nav-item-padding: 14px 12px;
+  --tree-select-item-height: 44px;
+  --tree-select-item-active-color: var(--primary-6);
+  --tree-select-item-disabled-color: var(--neutral-5);
+
+  /* ==================== Card 商品卡片组件 ==================== */
+  --card-padding: 8px 16px;
+  --card-font-size: 12px;
+  --card-text-color: var(--neutral-7);
+  --card-background-color: var(--neutral-1);
+  --card-thumb-size: 88px;
+  --card-thumb-border-radius: 8px;
+  --card-title-line-height: 16px;
+  --card-desc-color: var(--neutral-6);
+  --card-desc-line-height: 20px;
+  --card-price-color: var(--primary-6);
+  --card-origin-price-color: var(--neutral-6);
+  --card-num-color: var(--neutral-6);
+  --card-origin-price-font-size: 10px;
+  --card-price-font-size: 12px;
+  --card-price-integer-font-size: 16px;
+  --card-price-font-family: Avenir-Heavy, PingFang SC, Helvetica Neue, Arial, sans-serif;
+
+  /* ==================== SubmitBar 提交订单栏组件 ==================== */
+  --submit-bar-height: 50px;
+  --submit-bar-background-color: var(--neutral-1);
+  --submit-bar-button-width: 110px;
+  --submit-bar-price-color: var(--primary-6);
+  --submit-bar-price-font-size: 12px;
+  --submit-bar-currency-font-size: 12px;
+  --submit-bar-text-color: var(--neutral-9);
+  --submit-bar-text-font-size: 14px;
+  --submit-bar-tip-padding: 10px;
+  --submit-bar-tip-font-size: 12px;
+  --submit-bar-tip-line-height: 1.5;
+  --submit-bar-tip-color: #f56723;
+  --submit-bar-tip-background-color: #fff7cc;
+  --submit-bar-tip-icon-size: 12px;
+  --submit-bar-button-height: 40px;
+  --submit-bar-padding: 0 16px;
+  --submit-bar-price-integer-font-size: 20px;
+  --submit-bar-price-font-family: Avenir-Heavy, PingFang SC, Helvetica Neue, Arial, sans-serif;
+
+  /* ==================== GoodsAction 商品导购组件 ==================== */
+  --goods-action-background-color: var(--neutral-1);
+  --goods-action-icon-width: 48px;
+  --goods-action-icon-height: 50px;
+  --goods-action-icon-color: var(--neutral-7);
+  --goods-action-icon-size: 18px;
+  --goods-action-icon-font-size: 10px;
+  --goods-action-icon-active-color: var(--primary-6);
+  --goods-action-icon-text-color: var(--neutral-7);
+  --goods-action-button-height: 40px;
+  --goods-action-button-warning-color: var(--warning-6);
+  --goods-action-button-danger-color: var(--primary-6);
+  --goods-action-mini-button-height: 26px;
+  --goods-action-mini-button-font-size: 10px;
 }

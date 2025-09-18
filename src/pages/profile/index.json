@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "van-sticky": "@vant/weapp/sticky/index"
+  },
   "navigationBarTitleText": "我的"
 }

@@ -24,6 +24,20 @@ Page({
       completed: 9,
       refund: 0,
     },
+    // 统计数据网格数据
+    statsData: [
+      { type: 'orders', label: '订单', value: '12' },
+      { type: 'favorites', label: '收藏', value: '8' },
+      { type: 'coupons', label: '优惠券', value: '3' },
+      { type: 'points', label: '积分', value: '1280' }
+    ],
+    // 订单状态网格数据
+    orderStatusData: [
+      { type: 'pending', label: '待付款', icon: 'clock-o', count: 2 },
+      { type: 'shipped', label: '待发货', icon: 'gift-o', count: 1 },
+      { type: 'received', label: '待收货', icon: 'logistics', count: 0 },
+      { type: 'reviewed', label: '待评价', icon: 'chat-o', count: 3 }
+    ],
     menuList: [
       { id: 1, icon: 'star-o', title: '我的收藏', url: '', badge: '' },
       { id: 2, icon: 'location-o', title: '收货地址', url: '', badge: '' },
@@ -36,7 +50,7 @@ Page({
       { id: 1, icon: 'setting-o', title: '设置', url: '' },
       {
         id: 2,
-        icon: 'bar-chart-o',
+        icon: 'chart-trending-o',
         title: '统计数据',
         url: '',
         action: 'viewAnalytics',
@@ -52,6 +66,21 @@ Page({
    */
   onLoad(options) {
     console.info('个人中心页面加载', { page: 'profile', action: 'onLoad' });
+    // 确保数据正确设置
+    this.setData({
+      statsData: [
+        { type: 'orders', label: '订单', value: '12' },
+        { type: 'favorites', label: '收藏', value: '8' },
+        { type: 'coupons', label: '优惠券', value: '3' },
+        { type: 'points', label: '积分', value: '1280' }
+      ],
+      orderStatusData: [
+        { type: 'pending', label: '待付款', icon: 'clock-o', count: 2 },
+        { type: 'shipped', label: '待发货', icon: 'gift-o', count: 1 },
+        { type: 'received', label: '待收货', icon: 'logistics', count: 0 },
+        { type: 'reviewed', label: '待评价', icon: 'chat-o', count: 3 }
+      ]
+    });
   },
 
   /**
@@ -59,6 +88,13 @@ Page({
    */
   onShow() {
     console.info('个人中心页面显示', { page: 'profile', action: 'onShow' });
+    // 调试数据
+    console.log('statsData:', this.data.statsData);
+    console.log('orderStatusData:', this.data.orderStatusData);
+    // 初始化自定义 tabbar
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().init();
+    }
   },
 
   /**

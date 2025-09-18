@@ -11,11 +11,31 @@ Page({
     verifyCode: '',
     countdown: 0,
     loading: false,
+    phoneLoading: false,
+    agreedToTerms: true,
     canGetUserProfile: wx.canIUse('getUserProfile'),
+    statusBarHeight: 0,
+    navBarHeight: 0
   },
 
   onLoad(options) {
     authLogger.info('登录页面加载', options);
+    
+    // 获取系统信息，用于自定义导航栏适配
+    const systemInfo = wx.getSystemInfoSync();
+    this.setData({
+      statusBarHeight: systemInfo.statusBarHeight,
+      navBarHeight: systemInfo.statusBarHeight + 44
+    });
+  },
+
+  /**
+   * 返回上一页
+   */
+  onBack() {
+    wx.navigateBack({
+      delta: 1
+    });
   },
 
   /**
@@ -329,7 +349,56 @@ Page({
         icon: 'none',
       });
     } finally {
-      this.setData({ loading: false });
+      this.setData({ phoneLoading: false });
     }
   },
+
+  /**
+   * 切换到微信登录
+   */
+  switchToWxLogin() {
+    this.setData({ loginType: 'wx' });
+  },
+
+  /**
+   * 协议确认变更
+   */
+  onAgreementChange(e) {
+    this.setData({
+      agreedToTerms: e.detail
+    });
+  },
+
+  /**
+   * 查看用户协议
+   */
+  onViewUserAgreement() {
+    wx.showModal({
+      title: '用户协议',
+      content: '这里是用户协议内容...',
+      showCancel: false
+    });
+  },
+
+  /**
+   * 查看隐私政策
+   */
+  onViewPrivacyPolicy() {
+    wx.showModal({
+      title: '隐私政策',
+      content: '这里是隐私政策内容...',
+      showCancel: false
+    });
+  },
+
+  /**
+   * 联系客服
+   */
+  onContactService() {
+    wx.showModal({
+      title: '联系客服',
+      content: '客服电话：400-123-4567\n工作时间：9:00-18:00',
+      showCancel: false
+    });
+  }
 });

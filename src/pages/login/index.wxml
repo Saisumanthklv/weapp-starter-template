@@ -1,41 +1,217 @@
 <!-- src/pages/login/index.wxml -->
-<!-- 登录页面（简化为 Vant Weapp 原生风格） -->
-<view class="login-container">
-  <!-- 登录方式切换：使用 van-tabs -->
-  <van-tabs active="{{loginType}}" bind:change="onLoginTypeChange">
-    <van-tab title="微信登录" name="wx"></van-tab>
-    <van-tab title="手机登录" name="phone"></van-tab>
-  </van-tabs>
-  <!-- 微信登录 -->
-  <view class="section" wx:if="{{loginType === 'wx'}}">
-    <van-button type="primary" block round custom-class="mt-16" icon="wechat" loading="{{loading}}" disabled="{{loading}}" bind:click="onWxLogin">
-      微信一键登录
-    </van-button>
-    <van-button type="success" block round custom-class="mt-12" icon="phone" open-type="getPhoneNumber" loading="{{loading}}" disabled="{{loading}}" bind:getphonenumber="onGetPhoneNumber">
-      微信手机号登录
-    </van-button>
+<!-- 商城登录页面 - 现代设计风格 -->
+<view class="login-page">
+  <!-- 固定透明导航栏 -->
+  <view class="fixed-navbar">
+    <view class="navbar-content">
+      <view class="back-button" bind:tap="onBack">
+        <van-icon name="arrow-left" size="40rpx" color="rgba(255,255,255,0.9)" />
+      </view>
+    </view>
   </view>
-  <!-- 手机号登录 -->
-  <view class="section" wx:if="{{loginType === 'phone'}}">
-    <van-field value="{{phoneNumber}}" label="手机号" type="number" maxlength="11" placeholder="请输入手机号" border bind:change="onPhoneInput" />
-    <view class="row mt-12">
-      <van-field class="flex-1" value="{{verifyCode}}" label="验证码" type="number" maxlength="6" placeholder="请输入验证码" border bind:change="onCodeInput" />
-      <van-button size="small" type="primary" class="ml-12" disabled="{{countdown > 0}}" bind:click="onSendCode">
-        <block wx:if="{{countdown > 0}}">{{countdown}}s</block>
-        <block wx:else>发送验证码</block>
+
+  <!-- 顶部装饰背景 -->
+  <view class="login-header">
+    <view class="header-bg"></view>
+    <view class="header-content">
+      <!-- 品牌Logo区域 -->
+      <view class="brand-section">
+        <van-image 
+          class="brand-logo" 
+          src="/assets/images/logo.png" 
+          width="120rpx" 
+          height="120rpx" 
+          round
+          error-icon="shop-o"
+        />
+        <text class="brand-title">精品商城</text>
+        <text class="brand-subtitle">发现生活之美</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 登录表单容器 -->
+  <view class="login-form-container">
+    <!-- 欢迎文案 -->
+    <view class="welcome-section">
+      <text class="welcome-title">欢迎回来</text>
+      <text class="welcome-subtitle">选择您喜欢的登录方式</text>
+    </view>
+
+    <!-- 登录方式切换 -->
+    <van-tabs 
+      active="{{loginType}}" 
+      bind:change="onLoginTypeChange"
+      custom-class="login-tabs"
+      tab-class="login-tab"
+      tab-active-class="login-tab-active"
+      line-width="60rpx"
+      line-height="6rpx"
+    >
+      <van-tab title="快速登录" name="wx">
+        <van-icon slot="title-icon" name="wechat" size="32rpx" />
+      </van-tab>
+      <van-tab title="手机登录" name="phone">
+        <van-icon slot="title-icon" name="phone-o" size="32rpx" />
+      </van-tab>
+    </van-tabs>
+
+    <!-- 微信快速登录 -->
+    <view class="login-section" wx:if="{{loginType === 'wx'}}">
+      <view class="quick-login-area">
+        <!-- 主要登录按钮 -->
+        <van-button 
+          type="primary" 
+          block 
+          round 
+          size="large"
+          custom-class="primary-login-btn" 
+          icon="wechat" 
+          loading="{{loading}}" 
+          disabled="{{loading}}" 
+          bind:click="onWxLogin"
+        >
+          微信一键登录
+        </van-button>
+        
+        <!-- 辅助登录选项 -->
+        <view class="secondary-options">
+          <van-button 
+            type="default" 
+            block 
+            round 
+            custom-class="secondary-login-btn" 
+            icon="phone-o" 
+            open-type="getPhoneNumber" 
+            loading="{{phoneLoading}}" 
+            disabled="{{loading || phoneLoading}}" 
+            bind:getphonenumber="onGetPhoneNumber"
+          >
+            获取微信手机号
+          </van-button>
+        </view>
+
+        <!-- 登录优势说明 -->
+        <view class="login-benefits">
+          <view class="benefit-item">
+            <van-icon name="shield-o" size="32rpx" color="var(--success-color)" />
+            <text>安全便捷</text>
+          </view>
+          <view class="benefit-item">
+            <van-icon name="clock-o" size="32rpx" color="var(--info-color)" />
+            <text>快速登录</text>
+          </view>
+          <view class="benefit-item">
+            <van-icon name="gift-o" size="32rpx" color="var(--warning-color)" />
+            <text>专享优惠</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 手机号登录 -->
+    <view class="login-section" wx:if="{{loginType === 'phone'}}">
+      <view class="phone-login-area">
+        <!-- 手机号输入 -->
+        <van-cell-group custom-class="form-group" border="{{false}}">
+          <van-field 
+            value="{{phoneNumber}}" 
+            label="手机号" 
+            type="number" 
+            maxlength="11" 
+            placeholder="请输入11位手机号码" 
+            border="{{false}}"
+            custom-class="form-field"
+            left-icon="phone-o"
+            clearable
+            bind:change="onPhoneInput" 
+          />
+          
+          <!-- 验证码输入行 -->
+          <view class="verify-code-row">
+            <van-field 
+              value="{{verifyCode}}" 
+              label="验证码" 
+              type="number" 
+              maxlength="6" 
+              placeholder="请输入验证码" 
+              border="{{false}}"
+              custom-class="verify-code-field"
+              left-icon="shield-o"
+              clearable
+              bind:change="onCodeInput" 
+            />
+            <van-button 
+              size="small" 
+              type="{{countdown > 0 ? 'default' : 'primary'}}"
+              custom-class="send-code-btn"
+              disabled="{{countdown > 0 || !phoneNumber || phoneNumber.length !== 11}}" 
+              bind:click="onSendCode"
+            >
+              <block wx:if="{{countdown > 0}}">{{countdown}}s后重发</block>
+              <block wx:else>发送验证码</block>
+            </van-button>
+          </view>
+        </van-cell-group>
+
+        <!-- 登录按钮 -->
+        <van-button 
+          type="primary" 
+          block 
+          round 
+          size="large"
+          custom-class="phone-login-btn" 
+          loading="{{loading}}" 
+          disabled="{{loading || !phoneNumber || !verifyCode || phoneNumber.length !== 11 || verifyCode.length !== 6}}" 
+          bind:click="onPhoneLogin"
+        >
+          立即登录
+        </van-button>
+
+        <!-- 其他登录方式 -->
+        <view class="other-login-methods">
+          <view class="divider-line">
+            <text class="divider-text">其他登录方式</text>
+          </view>
+          <view class="other-methods-list">
+            <view class="method-item" bind:tap="switchToWxLogin">
+              <van-icon name="wechat" size="48rpx" color="var(--success-color)" />
+              <text>微信登录</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部协议区域 -->
+  <view class="agreement-footer">
+    <view class="agreement-checkbox">
+      <van-checkbox 
+        value="{{agreedToTerms}}" 
+        bind:change="onAgreementChange"
+        custom-class="agreement-check"
+        icon-size="32rpx"
+      />
+      <view class="agreement-text">
+        <text class="agreement-prefix">登录即表示同意</text>
+        <text class="agreement-link" bind:tap="onViewUserAgreement">《用户协议》</text>
+        <text class="agreement-connector">和</text>
+        <text class="agreement-link" bind:tap="onViewPrivacyPolicy">《隐私政策》</text>
+      </view>
+    </view>
+    
+    <!-- 客服联系 -->
+    <view class="customer-service">
+      <van-button 
+        type="default" 
+        size="mini" 
+        custom-class="service-btn"
+        icon="service-o"
+        bind:click="onContactService"
+      >
+        联系客服
       </van-button>
     </view>
-    <van-button type="primary" block round loading="{{loading}}" disabled="{{loading || !phoneNumber || !verifyCode}}" bind:click="onPhoneLogin">
-      登录
-    </van-button>
-  </view>
-  <!-- 用户协议 -->
-  <view class="agreement-section">
-    <text class="agreement-text">
-      登录即表示同意
-      <text class="link-text">《用户协议》</text>
-      和
-      <text class="link-text">《隐私政策》</text>
-    </text>
   </view>
 </view>

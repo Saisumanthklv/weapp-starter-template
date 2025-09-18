@@ -153,6 +153,10 @@ Page({
    */
   onShow() {
     console.info('首页显示', { page: 'home', action: 'onShow' });
+    // 初始化自定义 tabbar
+    if (typeof this.getTabBar === 'function' && this.getTabBar()) {
+      this.getTabBar().init();
+    }
   },
 
   /**

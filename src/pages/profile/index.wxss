@@ -2,32 +2,23 @@
 .container {
   background: var(--background-color);
   min-height: 100vh;
-  width: 100%;
+  padding: calc(var(--safe-area-inset-top) + 20rpx) 
+           calc(var(--safe-padding-horizontal) + 20rpx) 
+           var(--safe-padding-bottom) 
+           calc(var(--safe-padding-horizontal) + 20rpx);
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  gap: 20rpx;
-}
-
-/* 页面纵向栈布局，统一模块间距 */
-.page-stack {
-  display: flex;
-  row-gap: 20rpx; /* 模块间统一间距 */
-}
-
-.stack-item {
-  margin: 0; /* 由 row-gap 控制间距 */
 }
 
 /* 用户信息头部 */
 .user-header {
-  background: var(--background-color-light);
+  background: var(--background-color-2);
   padding: 40rpx 30rpx;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  box-sizing: border-box;
+  margin-bottom: 20rpx;
+  border-radius: 16rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
 }
 
 .user-info {
@@ -66,31 +57,38 @@
   color: var(--text-color-3);
 }
 
-/* 数据统计 */
+/* 统计数据网格 */
 .stats-section {
-  background: var(--background-color-light);
-  padding: 30rpx;
+  margin-bottom: 20rpx;
+}
+
+.stats-grid-custom {
   display: flex;
-  width: 100%;
-  box-sizing: border-box;
+  background: var(--background-color-2);
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
 }
 
 .stat-item {
-  text-align: center;
   flex: 1;
+  padding: 30rpx 20rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  min-width: 0;
+  text-align: center;
+  border-right: 1rpx solid var(--border-color);
 }
 
-.stat-number {
-  display: block;
-  font-size: 40rpx;
+.stat-item:last-child {
+  border-right: none;
+}
+
+.stat-value {
+  font-size: 32rpx;
   font-weight: bold;
   color: var(--text-color);
-  margin-bottom: 10rpx;
+  margin-bottom: 8rpx;
 }
 
 .stat-label {
@@ -98,38 +96,199 @@
   color: var(--text-color-2);
 }
 
-/* 通用区块 */
-.section {
-  width: 100%;
-  box-sizing: border-box;
+/* 订单状态网格 */
+.order-section {
+  margin-bottom: 20rpx;
 }
 
-/* 订单状态 */
-.order-status {
-  background: var(--background-color-light);
-  padding: 30rpx;
+.order-grid-custom {
   display: flex;
-  width: 100%;
-  box-sizing: border-box;
+  background: var(--background-color-2);
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
 }
 
 .order-item {
+  flex: 1;
+  padding: 30rpx 20rpx;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
   position: relative;
-  flex: 1;
-  min-width: 0;
+  border-right: 1rpx solid var(--border-color);
 }
 
-.order-item text {
+.order-item:last-child {
+  border-right: none;
+}
+
+.order-item-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.order-icon {
+  font-size: 48rpx;
+  color: var(--gray-6);
+  margin-bottom: 12rpx;
+}
+
+.order-label {
   font-size: 24rpx;
   color: var(--text-color-2);
-  margin-top: 10rpx;
 }
 
-.order-item .van-badge {
+.order-badge-wrapper {
   position: absolute;
-  top: -10rpx;
+  top: 8rpx;
+  right: 8rpx;
+  min-width: 32rpx;
+  height: 32rpx;
+  background: #ff4444;
+  border-radius: 16rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.order-badge-text {
+  font-size: 20rpx;
+  color: white;
+  font-weight: bold;
+  line-height: 1;
+}
+
+/* 功能菜单 */
+.menu-section {
+  margin-bottom: 20rpx;
+}
+
+.menu-title {
+  padding: 0 20rpx 20rpx;
+  font-size: 28rpx;
+  color: var(--text-color-2);
+  font-weight: 500;
+}
+
+.menu-group {
+  background: var(--background-color-2);
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+/* 设置菜单 */
+.settings-section {
+  margin-bottom: 40rpx;
+}
+
+.stat-grid-item {
+  padding: 30rpx 0;
+}
+
+.stat-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-number {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: var(--text-color);
+  margin-bottom: 8rpx;
+}
+
+.stat-label {
+  font-size: 24rpx;
+  color: var(--text-color-2);
+}
+
+/* 订单相关样式 */
+.order-section {
+  margin-bottom: 20rpx;
+}
+
+.order-grid {
+  margin-bottom: 20rpx;
+  background: var(--background-color-2);
+  border-radius: 16rpx;
+  overflow: hidden;
+  box-shadow: 0 4rpx 12rpx rgba(0, 0, 0, 0.05);
+}
+
+.order-grid-item {
+  padding: 30rpx 0;
+}
+
+.order-status-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.order-status-text {
+  font-size: 24rpx;
+  color: var(--text-color-2);
+  margin-top: 8rpx;
+}
+
+.order-status-content .van-badge {
+  position: absolute;
+  top: -5rpx;
   right: 20rpx;
+}
+
+/* 功能菜单样式 */
+.menu-section {
+  margin-bottom: 20rpx;
+}
+
+.setting-section {
+  margin-bottom: 20rpx;
+}
+
+/* Vant UI 组件自定义样式 */
+.van-cell-group__title {
+  color: var(--text-color);
+  font-weight: 600;
+}
+
+.van-cell {
+  background-color: var(--background-color-2);
+}
+
+.van-cell:active {
+  background-color: var(--active-color);
+}
+
+.van-card {
+  background: var(--background-color-2);
+  color: var(--text-color);
+  border: 1rpx solid var(--border-color);
+}
+
+.van-card__title,
+.van-card__desc,
+.van-card__num {
+  color: white !important;
+}
+
+/* 响应式设计 */
+@media (max-width: 375px) {
+  .stat-number {
+    font-size: 32rpx;
+  }
+  
+  .stat-label {
+    font-size: 22rpx;
+  }
 }

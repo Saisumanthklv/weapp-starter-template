@@ -19,9 +19,9 @@
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
-    "color": "#7A7E83",
-    "selectedColor": "#3cc51f",
-    "borderStyle": "black",
+    "custom": true,
+    "color": "#646566",
+    "selectedColor": "#E67514",
     "backgroundColor": "#ffffff",
     "list": [
       {
@@ -47,7 +47,12 @@
     "van-divider": "@vant/weapp/divider/index",
     "van-empty": "@vant/weapp/empty/index",
     "van-grid": "@vant/weapp/grid/index",
-    "van-grid-item": "@vant/weapp/grid-item/index"
+    "van-grid-item": "@vant/weapp/grid-item/index",
+    "van-tabbar": "@vant/weapp/tabbar/index",
+    "van-tabbar-item": "@vant/weapp/tabbar-item/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-info": "@vant/weapp/info/index",
+    "van-card": "@vant/weapp/card/index"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

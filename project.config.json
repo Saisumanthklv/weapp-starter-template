@@ -8,12 +8,19 @@
   },
   "setting": {
     "coverView": true,
-    "es6": true,
+    "es6": false,
     "postcss": true,
     "minified": true,
-    "enhance": false,
+    "enhance": true,
+    "newFeature": true,
     "showShadowRootInWxmlPanel": true,
+    "packNpmManually": false,
     "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "disableUseStrict": false,
+    "minifyWXML": true,
+    "useStaticServer": true,
+    "checkInvalidKey": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
@@ -24,5 +31,6 @@
   "editorSetting": {
     "tabIndent": "insertSpaces",
     "tabSize": 2
-  }
+  },
+  "compileHotReLoad": true
 }

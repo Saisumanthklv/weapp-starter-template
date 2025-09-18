@@ -6,8 +6,7 @@
   "scripts": {
     "dev": "echo \"请使用微信开发者工具打开项目\"",
     "build": "echo \"小程序无需构建，直接上传代码包\"",
-    "lint": "echo \"代码检查功能待添加\"",
-    "theme:apply": "node scripts/apply-vant-theme.js"
+    "lint": "echo \"代码检查功能待添加\""
   },
   "repository": {
     "type": "git",

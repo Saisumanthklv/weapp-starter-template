@@ -21,7 +21,10 @@
 .container {
   background: #f8f9fa;
   min-height: 100vh;
-  padding: 0;
+  padding: var(--safe-area-inset-top) 
+           var(--safe-padding-horizontal) 
+           var(--safe-padding-bottom) 
+           var(--safe-padding-horizontal);
   width: 100%;
   box-sizing: border-box;
   display: flex;

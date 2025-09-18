@@ -1,0 +1,22 @@
+/* custom-tab-bar/index.wxss */
+/* 使用主题变量 */
+.van-tabbar {
+  background-color: var(--tabbar-background-color);
+  border-top: 1px solid var(--border-color);
+}
+
+.van-tabbar-item {
+  color: var(--tabbar-item-text-color);
+}
+
+.van-tabbar-item--active {
+  color: var(--tabbar-item-active-color);
+}
+
+.van-tabbar-item__icon {
+  margin-bottom: 4px;
+}
+
+.van-tabbar-item__text {
+  font-size: 12px;
+}

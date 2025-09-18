@@ -5,5 +5,16 @@
 page {
   background-color: #f9fafb;
   color: #111827;
+  
+  /* 全局安全区域适配变量 */
+  --safe-area-inset-top: env(safe-area-inset-top, 0px);
+  --safe-area-inset-right: env(safe-area-inset-right, 0px);
+  --safe-area-inset-bottom: env(safe-area-inset-bottom, 0px);
+  --safe-area-inset-left: env(safe-area-inset-left, 0px);
+  
+  /* 常用组合安全区域变量 */
+  --safe-padding-top: var(--safe-area-inset-top);
+  --safe-padding-bottom: calc(var(--safe-area-inset-bottom) + 100rpx);
+  --safe-padding-horizontal: max(var(--safe-area-inset-left), var(--safe-area-inset-right));
 }
 

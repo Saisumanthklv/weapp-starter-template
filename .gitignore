@@ -1,20 +1,84 @@
-# 微信小程序相关
-.DS_Store
-node_modules/
-dist/
-build/
-
+# ==================== 微信小程序专用 ====================
 # 微信开发者工具生成的文件
 project.private.config.json
+project.config.json.bak
+sitemap*.json.bak
+
+# 小程序构建产物
+miniprogram_npm/
+.miniprogram/
+unpackage/
+
+# 小程序上传包
+*.wxapkg
+
+# 小程序调试文件
+.wxss.map
+.js.map
+
+# 小程序云开发
+cloudfunctions/
+
+# ==================== Node.js 相关 ====================
+# 依赖目录
+node_modules/
+jspm_packages/
+
+# 包管理器文件
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.pnpm-debug.log*
+
+# npm 缓存
+.npm
+.yarn/cache/
+.yarn/unplugged/
+.yarn/build-state.yml
+.yarn/install-state.gz
+
+# ==================== 开发工具 ====================
+# IDE 配置
 .vscode/
 .idea/
+*.sublime-project
+*.sublime-workspace
 
+# 编辑器临时文件
+*.swp
+*.swo
+*~
+.#*
+
+# ==================== 系统文件 ====================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+
+# ==================== 日志和调试 ====================
 # 日志文件
 *.log
 logs/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
 
 # 运行时数据
 pids
@@ -22,20 +86,19 @@ pids
 *.seed
 *.pid.lock
 
-# 依赖目录
-node_modules/
-jspm_packages/
+# ==================== 构建和部署 ====================
+# 构建目录
+dist/
+build/
+out/
 
-# 可选的npm缓存目录
-.npm
+# 临时文件
+*.tmp
+*.temp
+.cache/
+.parcel-cache/
 
-# 可选的eslint缓存
-.eslintcache
-
-# 微信小程序打包文件
-miniprogram_npm/
-.miniprogram/
-
+# ==================== 环境配置 ====================
 # 环境变量文件
 .env
 .env.local
@@ -43,25 +106,31 @@ miniprogram_npm/
 .env.test.local
 .env.production.local
 
-# 临时文件
-*.tmp
-*.temp
-.cache/
-
-# 系统文件
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-
-# 编辑器文件
-*.swp
-*.swo
-*~
-
-# 测试覆盖率文件
+# ==================== 测试相关 ====================
+# 测试覆盖率
 coverage/
 .nyc_output/
+*.lcov
 
+# Jest
+.jest/
+
+# ==================== 其他 ====================
 # 备份文件
 *.bak
 *.backup
+*.orig
+
+# 压缩文件
+*.zip
+*.tar.gz
+*.rar
+
+# 文档生成
+docs/dist/
+
+# ESLint 缓存
+.eslintcache
+
+# Prettier 缓存
+.prettiercache
